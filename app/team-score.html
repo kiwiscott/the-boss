@@ -1,0 +1,24 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="team-score">
+	<template>
+		<style>
+			/* CSS rules for your element */
+		</style>
+		<!-- local DOM for your element -->
+		<div>{{team}}</div>
+		<div>{{teamScore}}</div>
+	</template>
+
+	<script>
+		Polymer({
+      is: "team-score",
+      properties: {
+        // declare properties for the element's public API
+        team: String,
+		teamScore : Number
+      }
+    });
+
+	</script>
+</dom-module>

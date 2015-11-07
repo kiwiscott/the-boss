@@ -1,0 +1,20 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<script src="bower_components/iron-input/iron-input.html"></script>
+
+<dom-module id="new-user">
+	<template>
+		weird
+		<input id="name" />
+		<input id="country" />
+		<input type="button" on-click="newuser" />
+	</template>
+
+	<script>
+		Polymer({
+			is: "new-user",
+			newuser:function(){
+				app.newUser(this.$.name.value,this.$.country.value);
+			}
+    	});
+	</script>
+</dom-module>

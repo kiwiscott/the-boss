@@ -1,0 +1,33 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="team-score.html">
+
+<dom-module id="score-board">
+	<template>
+		<style>
+			/* CSS rules for your element */
+		</style>
+		<!-- local DOM for your element -->
+		<team-score team="{{game.team1}}" team-score="{{game.team1Score}}"></team-score>
+		<team-score team="{{game.team2}}" team-score="{{game.team2Score}}"></team-score>
+	</template>
+
+	<script>
+		Polymer({
+      is: "score-board",
+      properties: {
+        // declare properties for the element's public API
+        game: {
+			type: Object, 
+			value :function(){
+			return {
+				team1 : 'New Zealand',
+				team1Score : 0,
+				team2 : 'Australia',
+				team2Score : 0
+			};
+		}
+		}
+      }
+    });
+	</script>
+</dom-module>
