@@ -1,0 +1,22 @@
+{
+  "name": "the-boss",
+  "version": "1.0.0",
+  "description": "angular sample",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiwiscott/the-boss.git"
+  },
+  "author": "kiwiscott",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiwiscott/the-boss/issues"
+  },
+  "homepage": "https://github.com/kiwiscott/the-boss#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
