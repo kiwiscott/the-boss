@@ -11,11 +11,11 @@
     </style>
     <!-- local DOM for your element -->
     <template is="dom-if" if="{{game.gameOver}}">
-      <h1>The winer is : <span>{{winner}}</span></h1>
+      <h1>The winner is the <span>{{winner}}</span></h1>
     </template>
 
     <template is="dom-if" if="{{!game.gameOver}}">
-      <h1>Its looking like: <span>{{winner}}</span></h1>
+      <h1>It's looking like the <span>{{winner}}</span></h1>
     </template>
   </template>
 
