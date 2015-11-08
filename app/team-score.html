@@ -1,13 +1,30 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/iron-image/iron-image.html">
+
 
 <dom-module id="team-score">
+	<style>
+		:host {
+			/* Note: by default elements are always display:inline. */
+			display: block;
+			text-align: center;
+			margin:30px;
+			
+			border: 2px dashed lightskyblue;
+		
+		}
+		
+		H1 {
+			font-size: 10em;
+		}
+		
+		H3 {
+			font-size: 2em;
+		}
+	</style>
 	<template>
-		<style>
-			/* CSS rules for your element */
-		</style>
-		<!-- local DOM for your element -->
-		<div>{{team}}</div>
-		<div>{{teamScore}}</div>
+		<H3>{{team}}</H3>
+		<H1>{{teamScore}}</H1>
 	</template>
 
 	<script>
@@ -17,8 +34,10 @@
         // declare properties for the element's public API
         team: String,
 		teamScore : Number
-      }
+      },
+	  imageUrl :function(team){
+		  return 'images/'+team+'.jpg';
+	  }
     });
-
 	</script>
 </dom-module>

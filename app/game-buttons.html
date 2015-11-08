@@ -1,0 +1,74 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<script src="bower_components/iron-input/iron-input.html"></script>
+
+<dom-module id="game-buttons">
+	<style>
+		:host{
+			border: 2px dashed lightskyblue;
+			display: block;
+		}
+		button {
+			opacity: 0.25;
+			padding: 15px;
+			margin: 5px;
+			text-transform: capitalize;
+			background-color: gray;
+			color: black;
+			border-color: gray;
+		}
+		
+		.nz {
+			background-color: black;
+			color: white;
+			border-color: black;
+		}
+		
+		.aus {
+			background-color: gold;
+			color: green;
+			border-color: gold;
+		}
+	</style>
+	<template>
+		<button class="nz" on-click="nztry">NZ Try</button>
+		<button class="nz" on-click="nzpen">NZ Penalty</button>
+		<button class="nz" on-click="nzconv">NZ Conversion</button>
+
+		<button on-click="gameover">Gameover</button>
+		<button on-click="reset">reset</button>
+
+
+		<button class="aus" on-click="austry">AUS Try</button>
+		<button class="aus" on-click="auspen">AUS Penalty</button>
+		<button class="aus" on-click="ausconv">AUS Conversion</button>
+	</template>
+	<script>
+	Polymer({
+      is: "game-buttons",
+	  nztry:function(){
+		  this.fire('team1', {points: 5});
+	  },
+	  nzpen:function(){
+		  this.fire('team1', {points: 3});		  
+	  },
+	  nzconv:function(){
+		  this.fire('team1', {points: 2});		  		  
+	  },
+	  reset:function(){
+		  this.fire('reset');		  		  
+	  },
+	  gameover:function(){
+		  this.fire('game-over');		  		  
+	  },
+	  austry:function(){
+		  this.fire('team2', {points: 5});
+	  },
+	  auspen:function(){
+		  this.fire('team2', {points: 3});
+	  },
+	  ausconv:function(){
+		  this.fire('team2', {points: 2});
+	  }
+    });
+	</script>
+</dom-module>

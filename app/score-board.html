@@ -1,33 +1,73 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="team-score.html">
+<link rel="import" href="game-result.html">
+<link rel="import" href="game-buttons.html">
+<link rel="import" href="bower_components/iron-flex-layout/classes/iron-flex-layout.html">
 
 <dom-module id="score-board">
 	<template>
 		<style>
-			/* CSS rules for your element */
+			:host {
+				display: block;
+				border: 2px dashed lightskyblue;
+			}
 		</style>
-		<!-- local DOM for your element -->
-		<team-score team="{{game.team1}}" team-score="{{game.team1Score}}"></team-score>
-		<team-score team="{{game.team2}}" team-score="{{game.team2Score}}"></team-score>
+
+		<div class="vertical layout center">
+			<div class="flex">
+				<H1>{{game.title}}</H1>
+			</div>
+			<div class="flex-5">
+				<div class="horizontal layout justified">
+					<team-score team="{{game.team1}}" team-score="{{game.team1Score}}"></team-score>
+					<div class="flex layout vertical center-justified">
+						<h3>VS</h3>
+					</div>
+					<team-score team="{{game.team2}}" team-score="{{game.team2Score}}"></team-score>
+				</div>
+			</div>
+
+			<div class="flex-2">
+				<game-result game="{{game}}"></game-result>
+			</div>
+			<div class="flex">
+				<game-buttons on-reset="handleReset" on-game-over="handleGameOver" on-team2="handlePointsTeam2" on-team1="handlePointsTeam1"></game-buttons>
+			</div>
+		</div>
 	</template>
 
 	<script>
 		Polymer({
       is: "score-board",
       properties: {
-        // declare properties for the element's public API
         game: {
 			type: Object, 
 			value :function(){
 			return {
-				team1 : 'New Zealand',
+				title: 'New Zealand vs. Australia - Rugby World Cup 2015 Final',
+				gameOver : false, 
+				team1 : 'All Blacks',
 				team1Score : 0,
-				team2 : 'Australia',
+				team2 : 'Wallabies',
 				team2Score : 0
 			};
 		}
 		}
-      }
+      },
+	  handleReset : function(e){
+		  this.set('game.gameOver', false);
+		  this.set('game.team1Score', 0);
+		  this.set('game.team2Score', 0);		    
+	  },
+	  handleGameOver : function(e){
+		  this.set('game.gameOver', true);		  
+	  },
+	  handlePointsTeam1 : function(e){
+		  this.set('game.team1Score', this.game.team1Score + e.detail.points);
+	  },
+	  handlePointsTeam2 : function(e){
+		  this.set('game.team2Score', this.game.team2Score + e.detail.points);		  
+	  }
     });
 	</script>
 </dom-module>

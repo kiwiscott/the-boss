@@ -2,36 +2,13 @@
 <html>
 
 <head>
+  <title>Events - Polymer 1.0</title>
   <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-
-  <link rel="import" href="bower_components/firebase-element/firebase-collection.html">
-  <link rel="import" href="score-board.html">
-  <link rel="import" href="new-user.html">
+  <link rel="import" href="score-board.html" />
 </head>
 
 <body>
-  <template is="dom-bind" id="app">
-    <firebase-collection order-by-child="name" id="firebase-users" location="https://crackling-fire-2334.firebaseio.com/users" data="{{users}}"></firebase-collection>
-
-    <template is="dom-repeat" items="{{users}}" as="user">
-      <h4><span>[[user.name]]</span><span>[[user.country]]</span><span>[[user.wins]]</span></h4>
-    </template>
-    
-    <new-user></new-user>
-  </template>
-
   <score-board></score-board>
-
-
-
-
-
-
-  <!-- build:js scripts/app.js -->
-  <script src="scripts/app.js"></script>
-  <!-- endbuild-->
-
-
 </body>
 
 </html>

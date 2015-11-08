@@ -1,0 +1,46 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="game-result">
+  <template>
+    <style>
+      /* CSS rules for your element */   
+      :host {
+        border: 2px dashed lightskyblue;
+        display: block;
+      }
+    </style>
+    <!-- local DOM for your element -->
+    <template is="dom-if" if="{{game.gameOver}}">
+      <h1>The winer is : <span>{{winner}}</span></h1>
+    </template>
+
+    <template is="dom-if" if="{{!game.gameOver}}">
+      <h1>Its looking like: <span>{{winner}}</span></h1>
+    </template>
+  </template>
+
+  <script>
+    Polymer({
+      is: "game-result",
+	  properties :{
+		  winner: {
+			  type:String, 
+			  computed: 'computeWinner(game.team1Score,game.team2Score)'
+		  }
+	  },
+	  computeWinner: function(a,b){
+      var game = this.game; 
+      
+      if(game.team1Score > game.team2Score){
+        return game.team1;
+      }
+      else if(game.team1Score < game.team2Score){
+        return game.team2;
+      }
+      else{
+        return '---'
+      }
+    }
+    });
+  </script>
+</dom-module>
